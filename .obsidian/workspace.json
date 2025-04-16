@@ -158,9 +158,27 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "04b6635e57a67bad",
-  "lastOpenFiles": []
+  "active": "95e200752d43ff56",
+  "lastOpenFiles": [
+    "docs/index.xml",
+    "docs/tags/index.xml",
+    "docs/tags/index.html",
+    "docs/tags",
+    "docs/sitemap.xml",
+    "docs/categories/index.xml",
+    "docs/categories/index.html",
+    "docs/categories",
+    "docs/page/1/index.html",
+    "docs/page/1",
+    "docs/page",
+    "themes/PaperMod/images/tn.png",
+    "themes/PaperMod/images/screenshot.png",
+    "themes/PaperMod/README.md",
+    "static/images/warp.png",
+    "archetypes/default.md"
+  ]
 }

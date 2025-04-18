@@ -165,3 +165,16 @@ footer {
   text-align: center;
   font-size: 1.25rem;
 }
+
+.read-more {
+  display: block;
+  margin-top: 0.5rem;
+  color: #ff9b42;
+  font-weight: bold;
+  text-align: right;
+  text-decoration: none;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}

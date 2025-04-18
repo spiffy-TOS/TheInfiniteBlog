@@ -16,10 +16,9 @@ pagination:
       </a>
     </h2>
     <p>
-      {{ post.data.description 
-        or post.templateContent | striptags | truncate(300, true, '...') 
-      }}
+      {{ post.data.description or post.templateContent | striptags | truncate(300, true, '...') | safe }}
     </p>
+    <a class="read-more" href="{{ post.url }}">Read more →</a>
   </article>
 {% endfor %}
 

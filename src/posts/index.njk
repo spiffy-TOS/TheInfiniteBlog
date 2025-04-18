@@ -12,9 +12,14 @@ pagination:
   <article class="article">
     <h2 class="article-title">
       <a href="{{ post.url | url }}">
-        {{ post.data.title }}
+        {{ post.data.previewTitle or post.data.title }}
       </a>
     </h2>
-    <p>{{ post.data.description or post.templateContent | truncate(160, true, '...') }}</p>
+    <p>
+      {{ post.data.description 
+        or post.templateContent | striptags | truncate(300, true, '...') 
+      }}
+    </p>
   </article>
 {% endfor %}
+

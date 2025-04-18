@@ -15,9 +15,13 @@
 </header>
   <main>
   <div class="article">
+    {% if title %}
+      <h1 class="article-title">{{ title }}</h1>
+    {% endif %}
     {{ content | safe }}
   </div>
 </main>
+
 
   <footer>
   </footer>

@@ -2,7 +2,7 @@
 title: "The Infinite Journey Begins (And So Does This Blog)"
 description: "The first dev log for my solo sci-fi game project. A raw, personal dive into why I'm building it."
 publish: true
-tags: [devlog, infinite-journey, solo-dev]
+tags: [devlog, infinite-journey, solo-dev, post]
 date: 2025-04-12
 ---
 

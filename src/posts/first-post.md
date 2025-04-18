@@ -2,8 +2,8 @@
 title: "First Contact"
 layout: layout.njk
 description: "The first dev log for my solo sci-fi game project. A raw, personal dive into why I'm building it."
-publish: true
-tags: [devlog, infinite-journey, solo-dev, rings-of-chaos, lore, ai]
+previewTitle: "First Contact"
+tags: [devlog, infinite-journey]
 date: 2025-04-12
 ---
 

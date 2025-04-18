@@ -1,4 +1,6 @@
-module.exports = function (eleventyConfig) {
+module.exports = function(eleventyConfig) {
+  eleventyConfig.addPassthroughCopy("src/custom.css");
+
   return {
     dir: {
       input: "src",
@@ -6,4 +8,3 @@ module.exports = function (eleventyConfig) {
     }
   };
 };
-

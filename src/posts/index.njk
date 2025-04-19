@@ -10,14 +10,20 @@ permalink: /posts/index.html
 
 <h1 class="site-title">{{ title }}</h1>
 
-{% for post in pagination.items %}
-  <article class="post-preview">
-    <h2 class="article-title">
-      <a href="{{ post.url | url }}">{{ post.data.previewTitle or post.data.title }}</a>
-    </h2>
-     <p>
-      {{ post.data.description or post.templateContent | striptags | truncate(650, true, '...') | safe }}
-     </p>
-  </article>
-{% endfor %}
+<div class="post-preview-list">
+  {% for post in pagination.items %}
+    <article class="post-preview" data-title="{{ post.data.title }}">
+      <h2 class="article-title">{{ post.data.previewTitle or post.data.title }}</h2>
+      <p>
+        {{ post.data.description or post.templateContent | striptags | truncate(300, true, '...') | safe }}
+      </p>
+      <button class="read-more-btn" data-post-id="post-{{ loop.index }}">Read More →</button>
+
+      <div class="post-modal-content" id="post-{{ loop.index }}" style="display: none;">
+        {{ post.templateContent | safe }}
+      </div>
+    </article>
+  {% endfor %}
+</div>
+
 

@@ -25,21 +25,25 @@
 
   <footer></footer>
 
- <!-- 🔍 Modal for image previews -->
+<!-- 🔍 Modal for image previews -->
 <div id="imageModal" class="modal" style="display:none;">
   <span class="close" onclick="closeModal()">&times;</span>
   <img class="modal-content" id="modalImg">
 </div>
 
-<!-- 🔧 Inline JavaScript for Modal Behavior -->
+<!-- 🔍 Modal for blog post previews -->
+<div id="postModal" class="modal" style="display:none;">
+  <span class="close" onclick="closePostModal()">&times;</span>
+  <div class="modal-content" id="postModalContent"></div>
+</div>
+
+<!-- 🔧 Inline JavaScript for Both Modals -->
 <script>
+  // IMAGE MODAL
   function openModal(src) {
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImg");
-    if (!modal || !modalImg) {
-      console.error("Modal elements not found!");
-      return;
-    }
+    if (!modal || !modalImg) return;
     modal.style.display = "block";
     modalImg.src = src;
   }
@@ -49,21 +53,48 @@
     if (modal) modal.style.display = "none";
   }
 
-  document.addEventListener('keydown', function (event) {
-    if (event.key === "Escape") closeModal();
-  });
+  // POST MODAL
+  function closePostModal() {
+    const modal = document.getElementById("postModal");
+    const content = document.getElementById("postModalContent");
+    if (modal && content) {
+      modal.style.display = "none";
+      content.innerHTML = "";
+    }
+  }
 
+  // EVENT LISTENERS
   window.addEventListener('DOMContentLoaded', () => {
+    // Gallery image clicks
     const images = document.querySelectorAll('.gallery-grid img');
-    console.log("Images found:", images.length);
-
     images.forEach(img => {
       img.addEventListener('click', (e) => {
         e.preventDefault();
-        console.log("Clicked:", img.src);
         openModal(img.src);
       });
     });
+
+    // Post preview clicks
+    document.querySelectorAll(".read-more-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        const modal = document.getElementById("postModal");
+        const content = document.getElementById("postModalContent");
+        const postId = button.dataset.postId;
+        const postContent = document.getElementById(postId);
+
+        if (modal && content && postContent) {
+          content.innerHTML = postContent.innerHTML;
+          modal.style.display = "block";
+        }
+      });
+    });
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      closeModal();
+      closePostModal();
+    }
   });
 </script>
 </body>

@@ -30,8 +30,8 @@ body {
 .site-nav {
   text-align: center;
   background-color: transparent;
-  padding: 0.5rem 0 0 0; /* reduce top padding */
-  margin-bottom: 0.5rem; /* tighten spacing between nav and title */
+  padding: 0.5rem 0 0 0;
+  margin-bottom: 0.5rem;
 }
 
 .site-nav a,
@@ -154,6 +154,7 @@ footer {
   margin-top: 4rem;
   text-align: center;
 }
+
 /* INTRO BOX */
 .intro-box {
   background-color: rgba(0, 0, 0, 0.75);
@@ -180,6 +181,7 @@ footer {
 .read-more:hover {
   text-decoration: underline;
 }
+
 /* Full Post Page Styling */
 .post-content {
   background-color: rgba(0, 0, 0, 0.8);

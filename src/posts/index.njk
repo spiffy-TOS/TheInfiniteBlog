@@ -13,13 +13,11 @@ permalink: /posts/index.html
 {% for post in pagination.items %}
   <article class="post-preview">
     <h2 class="article-title">
-      <a href="{{ post.url | url }}">
-        {{ post.data.previewTitle or post.data.title }}
-      </a>
+      <a href="{{ post.url | url }}">{{ post.data.previewTitle or post.data.title }}</a>
     </h2>
-    <p>
-      {{ post.data.description or post.templateContent | striptags | truncate(300, true, '...') | safe }}
-    </p>
+     <p>
+      {{ post.data.description or post.templateContent | striptags | truncate(650, true, '...') | safe }}
+     </p>
   </article>
 {% endfor %}
 

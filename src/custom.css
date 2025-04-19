@@ -23,25 +23,28 @@ body {
     0 0 5px #ff9b42,
     0 0 10px #ff9b42,
     0 0 15px #ff9b42;
-  margin-top: 2rem;
+  margin-bottom: 0.25rem;
 }
 
 /* Navigation Styling */
 .site-nav {
   text-align: center;
   background-color: transparent;
-  padding: 0.75rem;
-  margin-top: 0.5rem;
+  padding: 0.5rem 0 0 0; /* reduce top padding */
+  margin-bottom: 0.5rem; /* tighten spacing between nav and title */
 }
 
-.site-nav a {
+.site-nav a,
+.nav-sep {
   color: #ffffff;
   text-decoration: none;
-  margin: 0 1rem;
+  margin-top: 0;
   font-weight: bold;
   font-family: 'Bangers', cursive;
-  font-size: 1.2rem;
-  text-shadow:
+  font-size: 1.5rem;
+  -webkit-text-stroke: 1px #000000;
+  text-stroke: 1px #000000;
+  text-shadow: 
     0 0 5px #ff9b42,
     0 0 10px #ff9b42,
     0 0 15px #ff9b42;
@@ -49,7 +52,10 @@ body {
 
 .site-nav a:hover {
   color: #ff9b42;
-  text-shadow: 0 0 20px #ff9b42;
+  text-shadow:
+    0 0 10px #ff9b42,
+    0 0 20px #ff9b42,
+    0 0 30px #ff9b42;
 }
 
 /* Ko-fi Button Styling - now smaller */
@@ -294,14 +300,16 @@ footer {
   margin: auto;
   display: block;
   max-width: 90%;
-  max-height: 80vh;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #fff;
 }
 
 .close {
   position: absolute;
-  top: 30px;
+  top: 20px;
   right: 35px;
-  color: #fff;
+  color: #ffffff;
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;

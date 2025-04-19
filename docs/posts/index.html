@@ -7,16 +7,17 @@
 </head>
 <body>
   <header>
-  <nav class="site-nav">
-    <a href="/TheInfiniteBlog/">Home</a> |
-    <a href="/TheInfiniteBlog/posts/">Posts</a>
-    <a href="/TheInfiniteBlog/gallery/">Gallery</a> |
-  </nav>
-  <h1 class="site-title">The Infinite Blog</h1>
-</header>
+    <nav class="site-nav">
+      <a href="/TheInfiniteBlog/">Home</a> |
+      <a href="/TheInfiniteBlog/posts/">Posts</a> |
+      <a href="/TheInfiniteBlog/gallery/">Gallery</a>
+    </nav>
+    <h1 class="site-title">The Infinite Blog</h1>
+  </header>
+
   <main>
-  <div class="post-content">
-    
+    <div class="post-content">
+      
 
 <h1 class="site-title">Posts</h1>
 
@@ -34,10 +35,44 @@
 
 
 
-  </div>
-</main>
+    </div>
+  </main>
 
   <footer></footer>
+
+  <!-- 🔍 Modal for image previews -->
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImg">
+  </div>
+
+  <!-- 🔧 Inline script or replace with script src if external later -->
+  <script>
+    function openModal(src) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImg");
+      modal.style.display = "block";
+      modalImg.src = src;
+    }
+
+    function closeModal() {
+      document.getElementById("imageModal").style.display = "none";
+    }
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === "Escape") closeModal();
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const images = document.querySelectorAll('.gallery-grid img');
+      images.forEach(img => {
+        img.addEventListener('click', (e) => {
+          e.preventDefault();
+          openModal(img.src);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
-	
+

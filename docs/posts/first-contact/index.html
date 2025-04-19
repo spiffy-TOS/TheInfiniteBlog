@@ -7,16 +7,17 @@
 </head>
 <body>
   <header>
-  <nav class="site-nav">
-    <a href="/TheInfiniteBlog/">Home</a> |
-    <a href="/TheInfiniteBlog/posts/">Posts</a>
-    <a href="/TheInfiniteBlog/gallery/">Gallery</a> |
-  </nav>
-  <h1 class="site-title">The Infinite Blog</h1>
-</header>
+    <nav class="site-nav">
+      <a href="/TheInfiniteBlog/">Home</a> |
+      <a href="/TheInfiniteBlog/posts/">Posts</a> |
+      <a href="/TheInfiniteBlog/gallery/">Gallery</a>
+    </nav>
+    <h1 class="site-title">The Infinite Blog</h1>
+  </header>
+
   <main>
-  <div class="post-content">
-    <p>This blog isn’t just about game dev.<br>
+    <div class="post-content">
+      <p>This blog isn’t just about game dev.<br>
 It’s about survival — creative, emotional, and otherwise.</p>
 <p>It’s me carving out a space where I can process the world, build something that matters, and maybe leave behind something better than what I came into.</p>
 <p>But I’m not doing it alone.</p>
@@ -70,10 +71,44 @@ If you want to help keep it going, you can tip me here:</p>
 <p>We’re just getting started.<br>
 Let’s make something unforgettable.</p>
 
-  </div>
-</main>
+    </div>
+  </main>
 
   <footer></footer>
+
+  <!-- 🔍 Modal for image previews -->
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImg">
+  </div>
+
+  <!-- 🔧 Inline script or replace with script src if external later -->
+  <script>
+    function openModal(src) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImg");
+      modal.style.display = "block";
+      modalImg.src = src;
+    }
+
+    function closeModal() {
+      document.getElementById("imageModal").style.display = "none";
+    }
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === "Escape") closeModal();
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const images = document.querySelectorAll('.gallery-grid img');
+      images.forEach(img => {
+        img.addEventListener('click', (e) => {
+          e.preventDefault();
+          openModal(img.src);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
-	
+

@@ -34,29 +34,27 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.site-nav a,
-.nav-sep {
+.site-nav a {
+  background-color: rgba(0, 0, 0, 0.6);
   color: #ffffff;
   text-decoration: none;
-  margin-top: 0;
-  font-weight: bold;
   font-family: 'Bangers', cursive;
-  font-size: 1.5rem;
-  -webkit-text-stroke: 1px #000000;
-  text-stroke: 1px #000000;
-  text-shadow: 
-    0 0 5px #ff9b42,
-    0 0 10px #ff9b42,
-    0 0 15px #ff9b42;
+  font-size: 1.3rem;
+  padding: 0.4rem 1.2rem;
+  margin: 0.25rem;
+  border-radius: 20px;
+  box-shadow: 0 0 8px #ff9b42;
+  border: 1px solid #ff9b42;
+  display: inline-block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .site-nav a:hover {
-  color: #ff9b42;
-  text-shadow:
-    0 0 10px #ff9b42,
-    0 0 20px #ff9b42,
-    0 0 30px #ff9b42;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #ffbb70;
+  background-color: rgba(255, 155, 66, 0.2);
 }
+
 
 /* Ko-fi Button Styling - now smaller */
 .kofi-wrapper {
@@ -101,14 +99,24 @@ body {
 }
 
 /* Blog Container */
-.post-preview {
-  background-color: rgba(0, 0, 0, 0.75);
-  padding: 1.5rem;
-  border-radius: 12px;
-  max-width: 800px;
-  margin: 2rem auto;
-  box-shadow: 0 0 14px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.post-preview p {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: #f5e9d7;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: justify;
+
+  /* 🔥 Add these */
+  max-height: none;
+  overflow: visible;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* number of lines you want visible */
+  -webkit-box-orient: vertical;
+}
+
+.post-preview:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px #ff9b42;
 }
 
 /* Blog Post Title */
@@ -187,7 +195,7 @@ footer {
   background-color: rgba(0, 0, 0, 0.8);
   padding: 2rem;
   border-radius: 12px;
-  max-width: 800px;
+  max-width: 600px;
   margin: 2rem auto;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -316,4 +324,48 @@ footer {
   font-weight: bold;
   cursor: pointer;
 }
+/* Clickable Post Preview Cards */
+.post-preview-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+}
 
+.post-preview {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 1.5rem;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 2rem auto;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-preview:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(255, 155, 66, 0.6);
+}
+
+.post-preview h2 {
+  font-family: 'Shojumaru', cursive;
+  font-size: 2rem;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 
+    0 0 5px #ff9b42,
+    0 0 10px #ff9b42,
+    0 0 15px #ff9b42;
+  margin-bottom: 1rem;
+}
+
+.post-preview p {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: #f5e9d7;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: justify;
+}

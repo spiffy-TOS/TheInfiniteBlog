@@ -7,96 +7,91 @@
 </head>
 <body>
   <header>
-   
-   <nav class="site-nav">
-    <a href="/TheInfiniteBlog/">Home</a>
-    <span class="nav-sep">|</span>
-    <a href="/TheInfiniteBlog/posts/">Posts</a>
-    <span class="nav-sep">|</span>
-    <a href="/TheInfiniteBlog/gallery/">Gallery</a>
-   </nav>
+    
+    <nav class="site-nav">
+      <a href="/TheInfiniteBlog/">Home</a>
+      <span class="nav-sep">|</span>
+      <a href="/TheInfiniteBlog/posts/">Posts</a>
+      <span class="nav-sep">|</span>
+      <a href="/TheInfiniteBlog/gallery/">Gallery</a>
+    </nav>
   </header>
 
   <main>
+    
       <img src="/TheInfiniteBlog/images/troc/traxconcept2.png" alt="Trax Concept 2" style="width:100%; border-radius: 8px; box-shadow: 0 0 12px rgba(255,255,255,0.3); margin-bottom: 1rem;" />
 <p></p>
 
+    
   </main>
 
   <footer></footer>
 
-<!-- 🔍 Modal for image previews -->
-<div id="imageModal" class="modal" style="display:none;">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <img class="modal-content" id="modalImg">
-</div>
+  <!-- 🔍 Image Modal -->
+  <div id="imageModal" class="modal" style="display:none;">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImg">
+  </div>
 
-<!-- 🔍 Modal for blog post previews -->
-<div id="postModal" class="modal" style="display:none;">
-  <span class="close" onclick="closePostModal()">&times;</span>
-  <div class="modal-content" id="postModalContent"></div>
-</div>
+  <!-- 🔍 Post Modal -->
+  <div id="postModal" class="modal" style="display:none;">
+    <span class="close" onclick="closePostModal()">&times;</span>
+    <div class="modal-content" id="postModalContent"></div>
+  </div>
 
-<!-- 🔧 Inline JavaScript for Both Modals -->
-<script>
-  // IMAGE MODAL
-  function openModal(src) {
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImg");
-    if (!modal || !modalImg) return;
-    modal.style.display = "block";
-    modalImg.src = src;
-  }
-
-  function closeModal() {
-    const modal = document.getElementById("imageModal");
-    if (modal) modal.style.display = "none";
-  }
-
-  // POST MODAL
-  function closePostModal() {
-    const modal = document.getElementById("postModal");
-    const content = document.getElementById("postModalContent");
-    if (modal && content) {
-      modal.style.display = "none";
-      content.innerHTML = "";
+  <!-- 🧠 Modal JavaScript -->
+  <script>
+    function openModal(src) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImg");
+      if (!modal || !modalImg) return;
+      modal.style.display = "block";
+      modalImg.src = src;
     }
-  }
 
-  // EVENT LISTENERS
-  window.addEventListener('DOMContentLoaded', () => {
-    // Gallery image clicks
-    const images = document.querySelectorAll('.gallery-grid img');
-    images.forEach(img => {
-      img.addEventListener('click', (e) => {
-        e.preventDefault();
-        openModal(img.src);
+    function closeModal() {
+      const modal = document.getElementById("imageModal");
+      if (modal) modal.style.display = "none";
+    }
+
+    function closePostModal() {
+      const modal = document.getElementById("postModal");
+      const content = document.getElementById("postModalContent");
+      if (modal && content) {
+        modal.style.display = "none";
+        content.innerHTML = "";
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.gallery-grid img').forEach(img => {
+        img.addEventListener('click', (e) => {
+          e.preventDefault();
+          openModal(img.src);
+        });
+      });
+
+      document.querySelectorAll(".read-more-btn").forEach(button => {
+        button.addEventListener("click", () => {
+          const modal = document.getElementById("postModal");
+          const content = document.getElementById("postModalContent");
+          const postId = button.dataset.postId;
+          const postContent = document.getElementById(postId);
+          if (modal && content && postContent) {
+            content.innerHTML = postContent.innerHTML;
+            modal.style.display = "block";
+          }
+        });
       });
     });
 
-    // Post preview clicks
-    document.querySelectorAll(".read-more-btn").forEach(button => {
-      button.addEventListener("click", () => {
-        const modal = document.getElementById("postModal");
-        const content = document.getElementById("postModalContent");
-        const postId = button.dataset.postId;
-        const postContent = document.getElementById(postId);
-
-        if (modal && content && postContent) {
-          content.innerHTML = postContent.innerHTML;
-          modal.style.display = "block";
-        }
-      });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closeModal();
+        closePostModal();
+      }
     });
-  });
-
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-      closeModal();
-      closePostModal();
-    }
-  });
-</script>
+  </script>
 </body>
 </html>
 

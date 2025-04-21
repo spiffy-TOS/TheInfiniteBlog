@@ -10,13 +10,19 @@ pagination:
 
 <div class="post-preview-list">
   {% for post in pagination.items %}
-    <a class="post-preview" href="{{ post.url | url }}">
-      <h2 class="article-title">{{ post.data.previewTitle or post.data.title }}</h2>
-      <p>
-        {{ post.data.description or post.templateContent | striptags | truncate(1000, true, '...') | safe }}
-      </p>
+    <a class="data-capsule" href="{{ post.url | url }}">
+      <div class="capsule-header">
+        <h2 class="capsule-title">{{ post.data.previewTitle or post.data.title }}</h2>
+        <p class="capsule-date">{{ post.date.toDateString() }}</p>
+      </div>
+      <div class="capsule-body">
+        <p class="capsule-excerpt">
+          {{ post.data.description or post.templateContent | striptags | truncate(600, true, '') | safe }}
+        </p>
+      </div>
     </a>
   {% endfor %}
 </div>
+
 
 

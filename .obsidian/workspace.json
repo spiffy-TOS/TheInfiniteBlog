@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "9c529cf0cca739d2",
+        "id": "42900817d6ae9480",
         "type": "tabs",
         "children": [
           {
-            "id": "04b6635e57a67bad",
+            "id": "7079da656c90c880",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -153,17 +153,25 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-git:Open Git source control": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "obsidian-git:Open Git source control": false
+      "command-palette:Open command palette": false
     }
   },
   "active": "95e200752d43ff56",
   "lastOpenFiles": [
+    "docs/images/troc/traxconcept1.png",
+    "src/posts/first-contact.md",
+    "docs/images/infinite-journey/dreamingbig.png",
+    "docs/images/infinite-journey/ogconcept.png",
+    "docs/images/infinite-journey/concept2.png",
+    "docs/images/infinite-journey/concept1.png",
+    "docs/images/troc/traxconcept2.png",
+    "docs/images/warp.png",
     "docs/index.xml",
     "docs/tags/index.xml",
     "docs/tags/index.html",
@@ -174,7 +182,6 @@
     "docs/categories",
     "docs/page/1/index.html",
     "docs/page/1",
-    "docs/page",
     "themes/PaperMod/images/tn.png",
     "themes/PaperMod/images/screenshot.png",
     "themes/PaperMod/README.md",
